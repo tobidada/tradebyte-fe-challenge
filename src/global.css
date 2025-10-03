@@ -1,35 +1,42 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Quicksand:wght@300..700&display=swap");
 @import "tailwindcss";
-@layer tailwind-base, primereact, tailwind-utilities;
-@import "primereact/resources/themes/lara-light-blue/theme.css";
-@import "primeicons/primeicons.css";
-
-/*@layer tailwind-base {*/
-/*  @tailwind base;*/
-/*}*/
-
-@layer tailwind-utilities {
-  @tailwind utilities;
-}
 
 @theme {
   --color-almond: #ffebcd;
   --color-almond-100: #a37024;
   --color-almond-200: #81591c;
   --color-almond-300: #5f4115;
+  --color-autumn-100: #ede0d4;
+  --color-autumn-200: #e6ccb2;
+  --color-autumn-300: #ddb892;
+  --color-autumn-400: #b08968;
+  --color-autumn-500: #9c6644;
+  --color-autumn-600: #7f5539;
+  --color-autumn-700: #5f4115;
 }
 
 :root {
   font-family: "Quicksand", serif;
   margin: 0;
   min-height: 100vh;
-  background: blanchedalmond;
-  color: #5f4115;
+  background: var(--color-autumn-200);
+  color: var(--color-autumn-700);
   line-height: 1.5;
   font-weight: 400;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* For Webkit-based browsers (Chrome, Safari and Opera) */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* For IE, Edge and Firefox */
+.scrollbar-hide {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }
 
 /*body {*/

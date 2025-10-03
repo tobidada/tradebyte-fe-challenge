@@ -1,11 +1,13 @@
+import { UserSearch } from "lucide-react";
+import { Link } from "react-router";
+
 const Header = () => {
   return (
     <header>
       <div className="page-max py-4 flex items-center px-4 cursor-pointer">
-        <a href="/" aria-label="Go to homepage">
-          <i className="pi pi-github" style={{ fontSize: "3rem" }}></i>
-          {/*<span>Github Search</span>*/}
-        </a>
+        <Link to="/" aria-label="Go to homepage">
+          <UserSearch size={40} strokeWidth={3} />
+        </Link>
       </div>
     </header>
   );
