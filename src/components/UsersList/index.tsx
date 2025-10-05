@@ -1,6 +1,7 @@
 import { useState } from "react";
-import type { User } from "../types.ts";
-import UserCard from "./UserCard.tsx";
+import type { User } from "../../types.ts";
+import UserCard from "../UserCard";
+import Message from "../Message";
 
 type UserListProps = {
   searchTerm: string;
@@ -16,12 +17,14 @@ const UserList = ({ users, searchTerm }: UserListProps) => {
   };
 
   return (
-    <div className="flex flex-col gap-y-4">
-      <div>Showing results matching: "{searchTerm}"</div>
+    <div data-testid="user-list" className="flex flex-col gap-y-4">
+      <Message>
+        Showing results matching: <b>"{searchTerm}"</b>
+      </Message>
       <div className="flex flex-col gap-y-2">
         {users.map((user: User) => (
-          <div onClick={() => handleUserClick(user)}>
-            <UserCard key={user.id} user={user} selectedUser={currentUser} />
+          <div key={user.id} onClick={() => handleUserClick(user)}>
+            <UserCard user={user} selectedUser={currentUser} />
           </div>
         ))}
       </div>

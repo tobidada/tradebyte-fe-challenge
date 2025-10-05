@@ -1,73 +1,69 @@
-# React + TypeScript + Vite
+# Git Search
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A small lightweight React + TypeScript app to search GitHub users and browse their public repositories with infinite scroll.
 
-Currently, two official plugins are available:
+## Quick overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Search GitHub users by username.
+- View their public repositories.
+- Link to actual Github repo
+- Infinite-scroll repository list with pagination.
 
-## React Compiler
+## Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Debounced user search
+- Client-side caching and retries via @tanstack/react-query
+- Infinite scroll for full repos view using Intersection Observer
+- Unit Tests (Jest + React Testing Library)
 
-## Expanding the ESLint configuration
+## Tech choices (why)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- React + TypeScript
+- Vite — fast dev server and builds.
+- Tailwind CSS
+- @tanstack/react-query — data fetching, caching, background updates
+- react-intersection-observer — infinite scroll.
+- Jest + React Testing Library — unit/component tests focused on behavior.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Getting started (macOS)
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+Prereqs: Node 20+ and npm
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Install
+```bash
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Run dev server
+```bash
+npm run dev
 ```
+
+Build
+```bash
+npm run build
+```
+
+Preview production build
+```bash
+npm run preview
+```
+
+Test
+```bash
+npm test
+```
+
+Lint and Formatting
+```bash
+npm format
+```
+
+Notes:
+- The unauthorised public api to fetch user Repos does not return total count even though its supports page and limit, hence the decision to use infinite scroll
+- For the sake of simplicity, i didnt use any state management as there was no need for it.
+- Relying heavily on react query's caching support
+
+## Future improvements
+
+- Add more tests, e2e particularly. 

@@ -1,9 +1,9 @@
-import Header from "./components/Header.tsx";
-import Footer from "./components/Footer.tsx";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 import { Routes, Route } from "react-router";
-import Home from "./components/pages/Home.tsx";
-import Repos from "./components/pages/Repos.tsx";
-import PageContainer from "./components/PageContainer.tsx";
+import Home from "./components/pages/Home";
+import Repos from "./components/pages/Repos";
+import PageContainer from "./components/PageContainer";
 
 function App() {
   return (

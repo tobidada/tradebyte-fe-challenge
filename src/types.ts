@@ -7,7 +7,7 @@ export type User = {
 };
 
 export type UsersResponse = {
-  items: User[];
+  users?: User[];
 };
 
 export type Repo = {
@@ -15,6 +15,7 @@ export type Repo = {
   name: string;
   description?: string;
   url: string;
+  html_url: string;
   forks_count: number;
   stargazers_count: number;
   watchers_count: number;
